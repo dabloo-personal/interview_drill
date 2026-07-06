@@ -1,29 +1,33 @@
-let arr = [0, 1, 0, 1, 1, 1,1]
+let arr = [1,1,0,1,0,0,1,1,1,0,1,0,0,1,1,1,1,0]
 
-// maxOccureence 
+let result = [0,0];
 
-let final_target = [0,0]
-let count =1;
-let targetIndex =0;
-
+if(arr.length==0){
+console.log("count ",0)
+}
+else if (arr.length==1){
+console.log("count",1)
+}
+else{
+   count =1;
 for(let i=1;i<arr.length;i++){
-    if(arr[i]!==targetIndex){
-        if(count >final_target[1]){
-            final_target[0]=targetIndex;
-            final_target[1]=count;
-        }
-        else{
-            count=1;
-            targetIndex=arr[i];
-        }
-    }
+  if(arr[i]===arr[i-1]){
     count++
+  }
+  else{
+    if(count>result[0]){
+        result[0]=count;
+        result[1]=arr[i-1];
+    }
+ count=1
+  }
+   if(count>result[0]){
+        result[0]=count;
+        result[1]=arr[i-1];
+    }
 
 }
 
-if(count>final_target[1]){
-    final_target[0]=targetIndex;
-    final_target[1]=count;
+console.log("result",result) 
 }
-
-console.log("final target",final_target)
+("result",result)
